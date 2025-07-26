@@ -1,1 +1,47 @@
 
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>百无聊赖研究院</title>
+
+    <meta property="og:title" content="百无聊赖研究院" />
+    <meta property="og:description" content="专业搞事。" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://i-inspiration.github.io/boredom/" />
+    <meta property="og:image" content="https://raw.githubusercontent.com/i-inspiration/boredom/main/images/logo.png" />
+    <meta property="og:image:width" content="500" />
+    <meta property="og:image:height" content="500" />
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+
+        <div id="intro-container" class="intro-container">
+            <div class="intro-text">听说你小子闲得蛋疼？</div>
+            <button id="start-btn" class="start-btn">是的</button>
+        </div>
+
+        <div id="main-container" class="main-container">
+            <div class="card">
+                <div id="goal-title" class="goal-title"></div>
+                <div id="goal-description" class="goal-desc"></div>
+            </div>
+
+            <div class="actions">
+                <button id="next-btn" class="btn">没意思</button>
+                <button id="confirm-btn" class="btn primary">就你了</button>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="./data/goals.js"></script>
+    <script src="script.js"></script>
+
+</body>
+</html>
+
