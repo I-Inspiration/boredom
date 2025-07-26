@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
         getRandomGoal(); // 获取第一个目标
     });
 
-    // "不好玩" 按钮
+    // "没意思" 按钮
     nextBtn.addEventListener('click', () => {
         getRandomGoal();
     });
