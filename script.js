@@ -1,6 +1,6 @@
 // 文件路径: /script.js
+// 这是修复了“吐槽”触发逻辑错误的最终版本。
 
-// 等待HTML文档完全加载后，再执行我们的代码
 document.addEventListener('DOMContentLoaded', () => {
 
     // ========== 1. 获取所有需要操作的HTML元素 ==========
@@ -15,26 +15,15 @@ document.addEventListener('DOMContentLoaded', () => {
     // ========== 2. 初始化数据 ==========
     let currentGoal = {};
     let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
-
-    // =========================================================
-    // ↓↓↓↓↓↓↓↓↓↓            逻辑修改区域            ↓↓↓↓↓↓↓↓↓↓
-    // =========================================================
     
-    // 新增一个“吐槽计数器”
     let boringClickCounter = 0;
-    // 设置触发吐槽的“阈值”，>7次，所以阈值是7
+    // 阈值仍然是7
     const TUCAO_THRESHOLD = 7; 
-    // “吐槽文案库”不再在这里定义，因为它已经从 tucao.js 中全局加载了
-
-    // =========================================================
-    // ↑↑↑↑↑↑↑↑↑↑            逻辑修改区域            ↑↑↑↑↑↑↑↑↑↑
-    // =========================================================
 
     // ========== 3. 定义核心函数 ==========
 
     // 随机获取一个新目标
     function getRandomGoal() {
-        // goalLibrary 是从 goals.js 加载的
         const randomIndex = Math.floor(Math.random() * goalLibrary.length);
         const randomGoal = goalLibrary[randomIndex];
 
@@ -59,13 +48,18 @@ document.addEventListener('DOMContentLoaded', () => {
         getRandomGoal();
     });
 
-    // "不好玩" 按钮 (逻辑修改)
+    // "不好玩" 按钮 (逻辑已修正)
     nextBtn.addEventListener('click', () => {
         boringClickCounter++;
 
-        // 检查是否达到吐槽阈值 (>7次)
-        if (boringClickCounter > TUCAO_THRESHOLD) {
-            // tucaoLibrary 是从 tucao.js 加载的
+        // =========================================================
+        // ↓↓↓↓↓↓↓↓↓↓            关键修正点            ↓↓↓↓↓↓↓↓↓↓
+        // =========================================================
+        // 检查是否达到吐槽阈值 (>=7次，即第7次点击时触发)
+        if (boringClickCounter >= TUCAO_THRESHOLD) {
+        // =========================================================
+        // ↑↑↑↑↑↑↑↑↑↑            关键修正点            ↑↑↑↑↑↑↑↑↑↑
+        // =========================================================
             const randomTucaoIndex = Math.floor(Math.random() * tucaoLibrary.length);
             const tucaoMessage = tucaoLibrary[randomTucaoIndex];
 
