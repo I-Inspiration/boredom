@@ -1,22 +1,36 @@
-<view class="container">
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>听说你小子闲得蛋疼？</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
-<view class="intro-container" wx:if="{{showIntro}}">
-  <view class="intro-text">听说你小子闲得蛋疼？</view>
-  <button class="start-btn" bindtap="handleStart">是的</button>
-</view>
+    <div class="container">
 
-<view class="main-container" wx:else>
-  <view class="card">
-    <view wx:if="{{currentGoal.title}}">
-      <view class="goal-title">{{currentGoal.title}}</view>
-      <view class="goal-desc">{{currentGoal.description}}</view>
-    </view>
-  </view>
+        <div id="intro-container" class="intro-container">
+            <div class="intro-text">听说你小子闲得蛋疼？</div>
+            <button id="start-btn" class="start-btn">是的</button>
+        </div>
 
-  <view class="actions">
-    <button class="btn" bindtap="handleNext">不好玩</button>
-    <button class="btn primary" bindtap="handleConfirm">就你了</button>
-  </view>
-</view>
+        <div id="main-container" class="main-container">
+            <div class="card">
+                <div id="goal-title" class="goal-title"></div>
+                <div id="goal-description" class="goal-desc"></div>
+            </div>
 
-</view>
+            <div class="actions">
+                <button id="next-btn" class="btn">不好玩</button>
+                <button id="confirm-btn" class="btn primary">就你了</button>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="./data/goals.js"></script>
+    <script src="script.js"></script>
+
+</body>
+</html>
