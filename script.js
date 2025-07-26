@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // "不好玩" 按钮 (逻辑已修正)
-    nextBtn.addEventListener('click', () => {
+    nextBtn.addEventListener('click', () =>7 {
         boringClickCounter++;
 
         // =========================================================
