@@ -1,0 +1,22 @@
+<view class="container">
+
+<view class="intro-container" wx:if="{{showIntro}}">
+  <view class="intro-text">听说你小子闲得蛋疼？</view>
+  <button class="start-btn" bindtap="handleStart">是的</button>
+</view>
+
+<view class="main-container" wx:else>
+  <view class="card">
+    <view wx:if="{{currentGoal.title}}">
+      <view class="goal-title">{{currentGoal.title}}</view>
+      <view class="goal-desc">{{currentGoal.description}}</view>
+    </view>
+  </view>
+
+  <view class="actions">
+    <button class="btn" bindtap="handleNext">不好玩</button>
+    <button class="btn primary" bindtap="handleConfirm">就你了</button>
+  </view>
+</view>
+
+</view>
