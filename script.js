@@ -1,5 +1,6 @@
-// 文件路径: /script.js (最简洁稳定版)
+// 文件路径: /script.js
 
+// 等待HTML文档完全加载后，再执行我们的代码
 document.addEventListener('DOMContentLoaded', () => {
 
     // ========== 1. 获取所有需要操作的HTML元素 ==========
@@ -11,33 +12,32 @@ document.addEventListener('DOMContentLoaded', () => {
     const goalTitleEl = document.getElementById('goal-title');
     const goalDescriptionEl = document.getElementById('goal-description');
 
-    // ========== 2. 检查数据文件是否加载 ==========
-    if (typeof goalLibrary === 'undefined') {
-        document.body.innerHTML = '<div style="padding: 20px; text-align: center; color: red; font-size: 18px;"><b>错误：目标库(goals.js)加载失败！</b><br><br>请按F12打开控制台(Console)查看详细错误信息。</div>';
-        return;
-    }
-
-    // ========== 3. 初始化数据 ==========
+    // ========== 2. 初始化数据 ==========
     let currentGoal = {};
+    // 读取浏览器本地存储的收藏夹，这相当于小程序里的 getStorageSync
     let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
 
-    // ========== 4. 定义核心函数 ==========
+    // ========== 3. 定义核心函数 ==========
+
+    // 随机获取一个新目标
     function getRandomGoal() {
         const randomIndex = Math.floor(Math.random() * goalLibrary.length);
         const randomGoal = goalLibrary[randomIndex];
 
+        // 避免与上一个重复
         if (currentGoal && randomGoal.id === currentGoal.id) {
-            getRandomGoal();
+            getRandomGoal(); // 重新抽一次
             return;
         }
 
         currentGoal = randomGoal;
         
+        // 更新HTML内容，这相当于小程序里的 setData
         goalTitleEl.innerText = currentGoal.title;
         goalDescriptionEl.innerText = currentGoal.description;
     }
 
-    // ========== 5. 绑定按钮的点击事件 ==========
+    // ========== 4. 绑定按钮的点击事件 ==========
 
     // "是的" 按钮
     startBtn.addEventListener('click', () => {
@@ -48,21 +48,27 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // "没意思" 按钮
     nextBtn.addEventListener('click', () => {
-        getRandomGoal(); // 直接获取下一个目标
+        getRandomGoal();
     });
 
     // "就你了" 按钮 (收藏)
     confirmBtn.addEventListener('click', () => {
         if (!currentGoal.id) return;
 
+        // 检查是否已收藏
         if (favorites.some(item => item.id === currentGoal.id)) {
-            alert('已在收藏夹中');
+            alert('已在收藏夹中'); // alert 相当于简化版的 showToast
             return;
         }
 
+        // 添加到收藏夹数组
         favorites.unshift(currentGoal);
+        
+        // 保存到浏览器本地存储，这相当于 setStorageSync
+        // 注意：localStorage只能存字符串，所以要用JSON.stringify转换
         localStorage.setItem('favorites', JSON.stringify(favorites));
 
         alert('已加入收藏夹！');
     });
+
 });
