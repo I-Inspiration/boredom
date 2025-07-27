@@ -145,4 +145,37 @@ body, html {
     border-color: #07c160; /* 边框也变成绿色 */
 }
 
+/* ================== 页面三：吐槽页 ================== */
 
+/* 吐槽页的容器，也使用 main-container 的布局，让卡片和按钮上下分开 */
+.tucao-container {
+    justify-content: space-between;
+    max-width: 500px;
+    height: 80%;
+}
+
+/* 吐槽页的卡片，我们给它一个特殊的身份 .tucao-card */
+.tucao-card {
+    background-color: #e53935; /* 背景色：红色 */
+}
+
+/* 吐槽文字的样式 */
+.tucao-text {
+    font-size: 28px;
+    font-weight: bold;
+    color: #f0f0f0; /* 文字颜色：浅灰色 */
+    line-height: 1.5;
+}
+
+/* “道歉”按钮的样式 */
+.apology-btn {
+    padding: 10px 20px;
+    min-width: 180px;
+    background-color: #555555; /* 背景色：深灰色 */
+    color: white; /* 文字颜色：白色 */
+    border: none;
+    border-radius: 25px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+}
