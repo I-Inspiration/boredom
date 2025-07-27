@@ -1,150 +1,148 @@
-/* 文件路径: /style.css (最终修正版) */
+/* 文件路径: /style.css (最终注释版) */
 
-/* 基础重置和全局样式 */
+/* 基础重置和全局样式 
+  "*" 是一个通配符，表示“选中页面上所有的元素”。
+  这段代码的目的是消除所有浏览器自带的默认边距，让我们的设计从一个干净的“零”开始。
+*/
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+    margin: 0; /* 清除所有元素的外边距 */
+    padding: 0; /* 清除所有元素的内边距 */
+    box-sizing: border-box; /* 让元素的宽度和高度计算包含边框和内边距，布局更容易 */
 }
 
+/* 为 body 和 html 这两个最顶层的元素设置样式
+  这能确保我们的页面能撑满整个浏览器窗口。
+*/
 body, html {
-    height: 100%;
-    font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'PingFang SC', 'Microsoft YaHei', sans-serif;
-    background-color: #f4f4f4;
+    height: 100%; /* 高度占满整个屏幕 */
+    font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'PingFang SC', 'Microsoft YaHei', sans-serif; /* 设置一个优雅、跨平台的默认字体 */
+    background-color: #f4f4f4; /* 设置一个柔和的浅灰色背景 */
 }
 
+/* 整体容器 .container 的样式
+  这是我们所有内容的“大舞台”，我们用Flex布局来让所有东西都垂直和水平居中。
+*/
 .container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
-    width: 100%;
-    padding: 20px;
-}
-
-/* 所有页面的通用隐藏样式 */
-.page {
-    display: none; /* 默认所有页面都先藏起来 */
-    width: 100%;
-    height: 100%;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    display: flex; /* 命令：启用Flex弹性布局模式 */
+    flex-direction: column; /* 命令：让内部元素从上到下垂直排列 */
+    align-items: center; /* 命令：让内部元素在水平方向上居中 */
+    justify-content: center; /* 命令：让内部元素在垂直方向上居中 */
+    height: 100%; /* 容器高度占满父元素（也就是整个屏幕） */
+    padding: 20px; /* 在容器四周留出20像素的空白，避免内容贴边 */
 }
 
 /* ================== 页面一：启动页 ================== */
+
+/* 启动页容器 .intro-container 的样式
+  这个容器本身已经被 .container 居中了，我们只需要让它里面的文字也居中即可。
+*/
 .intro-container {
-    /* JS会控制显示 */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
+    display: flex; /* 命令：使用Flex布局 */
+    flex-direction: column; /* 命令：从上到下垂直排列 */
+    align-items: center; /* 命令：水平居中对齐 */
+    justify-content: center; /* 命令：垂直居中对齐 */
+    text-align: center; /* 让内部的文字水平居中 */
 }
 
+/* 启动页的文字 .intro-text 的样式
+*/
 .intro-text {
-    font-size: 24px;
-    font-weight: bold;
-    color: #333;
-    margin-bottom: 40px;
+    font-size: 24px; /* 字体大小 */
+    font-weight: bold; /* 字体加粗 */
+    color: #333; /* 字体颜色，深灰色 */
+    margin-bottom: 40px; /* 与下方按钮的间距 */
 }
 
+/* “是的”按钮 .start-btn 的样式
+*/
 .start-btn {
-    width: 150px;
-    height: 50px;
-    background-color: #07c160;
-    color: white;
-    font-weight: bold;
-    font-size: 18px;
-    border: none;
-    border-radius: 25px;
-    cursor: pointer;
+    width: 150px; /* 按钮宽度 */
+    height: 50px; /* 按钮高度 */
+    background-color: #07c160; /* 按钮背景色（微信绿） */
+    color: white; /* 文字颜色为白色 */
+    font-weight: bold; /* 文字加粗 */
+    font-size: 18px; /* 文字大小 */
+    border: none; /* 去掉边框 */
+    border-radius: 25px; /* 设置圆角，让按钮变成椭圆形 */
+    cursor: pointer; /* 鼠标放上去时，显示为可点击的手指形状 */
 }
 
 /* ================== 页面二：任务页 ================== */
+
+/* 任务页容器 .main-container 的样式
+  这个容器负责将“卡片”和“按钮区”从上到下排列。
+*/
 .main-container {
-    justify-content: space-between;
-    max-width: 500px;
-    height: 80%;
+    display: none; /* 默认隐藏，等待JS来唤醒它 */
+    flex-direction: column; /* 命令：让内部元素（卡片和按钮）从上到下垂直排列 */
+    align-items: center; /* 命令：让内部元素水平居中 */
+    justify-content: space-between; /* 命令：让内部元素上下两端对齐，中间留出最大空间 */
+    width: 100%; /* 宽度撑满父容器 */
+    max-width: 500px; /* 但最大宽度不超过500px，防止在电脑大屏幕上内容过宽 */
+    height: 80%; /* 高度占屏幕的80% */
 }
 
+/* 任务卡片 .card 的样式
+*/
 .card {
-    width: 100%;
-    background-color: #ffffff; /* 确保卡片是白色背景 */
-    border-radius: 10px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
-    padding: 30px;
-    text-align: center;
-    flex-grow: 1;
-    margin-bottom: 40px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    width: 100%; /* 宽度撑满父容器 .main-container */
+    background-color: #ffffff; /* 白色背景 */
+    border-radius: 10px; /* 轻微的圆角 */
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05); /* 添加一个非常淡的阴影，营造立体感 */
+    padding: 30px; /* 卡片内部的留白 */
+    text-align: center; /* 文字水平居中 */
+    flex-grow: 1; /* 命令：尽可能地占据父容器的剩余空间（让卡片尽可能大） */
+    margin-bottom: 40px; /* 和下方按钮区的间距 */
+    display: flex; /* 同样使用Flex布局 */
+    flex-direction: column; /* 让卡片内部的标题和描述也垂直排列 */
+    justify-content: center; /* 让卡片内部的文字在垂直方向上居中 */
 }
 
+/* 目标标题 .goal-title 的样式
+*/
 .goal-title {
     font-size: 22px;
     font-weight: bold;
     margin-bottom: 15px;
 }
 
+/* 目标描述 .goal-desc 的样式
+*/
 .goal-desc {
     font-size: 16px;
-    color: #555;
-    line-height: 1.6;
+    color: #555; /* 比标题颜色浅一点的灰色 */
+    line-height: 1.6; /* 设置行高，让多行文字不显得拥挤 */
 }
 
+/* 底部按钮区 .actions 的样式
+*/
 .actions {
-    width: 100%;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
+    width: 100%; /* 宽度撑满父容器 */
+    display: flex; /* 使用Flex布局 */
+    justify-content: space-around; /* 命令：让内部的按钮均匀分布空间 */
+    align-items: center; /* 命令：让内部的按钮在垂直方向上对齐 */
 }
 
+/* 通用按钮 .btn 的样式
+*/
 .btn {
-    padding: 10px 20px;
-    min-width: 120px;
-    background-color: #fff;
-    border: 1px solid #eee;
-    border-radius: 20px;
+    padding: 10px 20px; /* 按钮的内部留白 */
+    min-width: 120px; /* 按钮的最小宽度 */
+    background-color: #fff; /* 默认白色背景 */
+    border: 1px solid #eee; /* 一个很淡的灰色边框 */
+    border-radius: 20px; /* 圆角 */
     font-size: 16px;
-    cursor: pointer;
+    cursor: pointer; /* 鼠标手势 */
 }
 
+/* 主要按钮 .btn.primary 的特殊样式
+  当一个按钮同时拥有 .btn 和 .primary 两个类名时，这些样式会覆盖上面的默认样式。
+*/
 .btn.primary {
-    background-color: #07c160;
-    color: white;
-    font-weight: bold;
-    border-color: #07c160;
-}
-
-/* ================== 页面三：吐槽页 ================== */
-.tucao-container {
-    background-color: #e53935; /* 红色背景 */
-    position: fixed; /* 覆盖整个屏幕 */
-    top: 0;
-    left: 0;
-    padding: 30px;
-    text-align: center;
-}
-
-.tucao-text {
-    font-size: 28px;
-    font-weight: bold;
+    background-color: #07c160; /* 绿色背景 */
     color: white; /* 白色文字 */
-    margin-bottom: 60px;
-    line-height: 1.5;
+    font-weight: bold;
+    border-color: #07c160; /* 边框也变成绿色 */
 }
 
-.apology-btn {
-    width: 200px;
-    height: 50px;
-    background-color: #757575; /* 灰色背景 */
-    color: white;
-    font-weight: bold;
-    font-size: 18px;
-    border: none;
-    border-radius: 25px;
-    cursor: pointer;
-}
+
