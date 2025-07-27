@@ -1,7 +1,5 @@
+/* 文件路径: /style.css (最终修正版) */
 
-/* 文件路径: /style.css */
-
-/* 基础重置和全局样式 */
 * {
     margin: 0;
     padding: 0;
@@ -24,7 +22,6 @@ body, html {
     padding: 20px;
 }
 
-/* 所有页面的通用隐藏样式 */
 .page {
     display: none; /* 默认所有页面都先藏起来 */
     width: 100%;
@@ -116,7 +113,7 @@ body, html {
     border-color: #07c160;
 }
 
-/* ================== 新增！页面三：吐槽页 ================== */
+/* ================== 页面三：吐槽页 ================== */
 .tucao-container {
     background-color: #e53935; /* 红色背景 */
     position: fixed; /* 覆盖整个屏幕 */
