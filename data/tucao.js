@@ -1,5 +1,6 @@
 
 // 文件路径: /data/tucao.js (已修正并添加ID)
+// 这是吐槽库文件。
 
 const tucaoLibrary = [
   // 吐槽20句
