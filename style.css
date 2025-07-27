@@ -36,6 +36,10 @@ body, html {
 /* ================== 页面一：启动页 ================== */
 .intro-container {
     /* JS会控制显示 */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     text-align: center;
 }
 
