@@ -1,6 +1,4 @@
-
-
-/* 文件路径: /style.css */
+/* 文件路径: /style.css (最终修正版) */
 
 /* 基础重置和全局样式 */
 * {
@@ -15,23 +13,29 @@ body, html {
     background-color: #f4f4f4;
 }
 
-/* 整体容器 */
 .container {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     height: 100%;
+    width: 100%;
     padding: 20px;
 }
 
-/* 启动画面样式 */
-.intro-container {
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    justify-content: center;
+/* 所有页面的通用隐藏样式 */
+.page {
+    display: none; /* 默认所有页面都先藏起来 */
     width: 100%;
+    height: 100%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ================== 页面一：启动页 ================== */
+.intro-container {
+    /* JS会控制显示 */
     text-align: center;
 }
 
@@ -54,20 +58,16 @@ body, html {
     cursor: pointer;
 }
 
-/* 目标界面样式 (默认隐藏) */
+/* ================== 页面二：任务页 ================== */
 .main-container {
-    display: none; /* JS会控制它显示 */
-    flex-direction: column;
-    align-items: center;
     justify-content: space-between;
-    width: 100%;
     max-width: 500px;
     height: 80%;
 }
 
 .card {
     width: 100%;
-    background-color: #ffffff;
+    background-color: #ffffff; /* 确保卡片是白色背景 */
     border-radius: 10px;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
     padding: 30px;
@@ -115,42 +115,28 @@ body, html {
     border-color: #07c160;
 }
 
-
-/* 吐槽界面样式 (默认隐藏) */
-.main-container {
-    display: none; /* JS会控制它显示 */
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    max-width: 500px;
-    height: 80%;
-}
-
-.card {
-    width: 100%;
-    background-color: red;
-    border-radius: 10px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+/* ================== 页面三：吐槽页 ================== */
+.tucao-container {
+    background-color: #e53935; /* 红色背景 */
+    position: fixed; /* 覆盖整个屏幕 */
+    top: 0;
+    left: 0;
     padding: 30px;
     text-align: center;
-    flex-grow: 1;
-    margin-bottom: 40px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
 }
 
 .tucao-text {
-    font-size: 22px;
+    font-size: 28px;
     font-weight: bold;
-    margin-bottom: 15px;
+    color: white; /* 白色文字 */
+    margin-bottom: 60px;
+    line-height: 1.5;
 }
 
-.tucao-btn {
-    width: 150px;
+.apology-btn {
+    width: 200px;
     height: 50px;
-    background-color: #757575;
+    background-color: #757575; /* 灰色背景 */
     color: white;
     font-weight: bold;
     font-size: 18px;
