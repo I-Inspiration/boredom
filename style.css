@@ -174,7 +174,7 @@ body, html {
 /* “道歉”按钮的样式 */
 .apology-btn {
     padding: 10px 20px;
-    min-width: 180px;
+    min-width: 120px;
     background-color: #555555; /* 背景色：深灰色 */
     color: white; /* 文字颜色：白色 */
     border: none;
