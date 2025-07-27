@@ -149,7 +149,11 @@ body, html {
 
 /* 吐槽页的容器，也使用 main-container 的布局，让卡片和按钮上下分开 */
 .tucao-container {
+    display: none;
+    flex-direction: column;
+    align-items: center;
     justify-content: space-between;
+    width: 100%; 
     max-width: 500px;
     height: 80%;
 }
