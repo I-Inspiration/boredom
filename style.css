@@ -165,7 +165,7 @@ body, html {
 
 /* 吐槽文字的样式 */
 .tucao-text {
-    font-size: 28px;
+    font-size: 36px;
     font-weight: bold;
     color: #f0f0f0; /* 文字颜色：浅灰色 */
     line-height: 1.5;
@@ -180,6 +180,5 @@ body, html {
     border: none;
     border-radius: 25px;
     font-size: 18px;
-    font-weight: bold;
     cursor: pointer;
 }
