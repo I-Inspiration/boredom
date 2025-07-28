@@ -1,0 +1,70 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>百无聊赖研究院 - [后台]</title> <!-- 标题加上后台标识，方便您自己区分 -->
+    <link rel="icon" type="image/png" href="./images/minilogo.png">
+    
+    <meta property="og:title" content="百无聊赖研究院" />
+    <meta property="og:description" content="专业搞事。" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://i-inspiration.github.io/boredom/" />
+    <meta property="og:image" content="https://raw.githubusercontent.com/i-inspiration/boredom/main/images/logo.png" />
+    <meta property="og:image:width" content="500" />
+    <meta property="og:image:height" content="500" />
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- 这里的内容和 index.html 完全一样 -->
+    <div class="container">
+        <div id="intro-container" class="page intro-container">
+            <div class="intro-text">听说你小子闲得蛋疼？</div>
+            <button id="start-btn" class="start-btn">是的</button>
+        </div>
+        <div id="main-container" class="page main-container">
+            <div class="card">
+                <div id="goal-title" class="goal-title"></div>
+                <div id="goal-description" class="goal-desc"></div>
+            </div>
+            <div class="actions">
+                <button id="next-btn" class="btn">没意思</button>
+                <button id="confirm-btn" class="btn primary">就你了</button>
+            </div>
+        </div>
+        <div id="tucao-container" class="page tucao-container">
+            <div class="card tucao-card">
+                <div id="tucao-text" class="tucao-text"></div>
+            </div>
+            <div class="actions">
+                <button id="apology-btn" class="apology-btn">对不起<br>我错了</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========================================================= -->
+    <!-- ↓↓↓↓↓↓↓↓↓↓            后台专属功能区            ↓↓↓↓↓↓↓↓↓↓ -->
+    <!-- ========================================================= -->
+    
+    <!-- 1. 用来显示浏览量的容器，默认就是可见的 -->
+    <div id="admin-counter" style="position: fixed; bottom: 10px; right: 10px; font-size: 12px; color: #aaa; background: #fff; padding: 2px 5px; border-radius: 3px; z-index: 999;">
+        👀 <b>总浏览量:</b> <span id="busuanzi_value_site_pv"></span>
+    </div>
+
+    <!-- 2. 引入不蒜子计数服务的脚本 -->
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+    <!-- ========================================================= -->
+    <!-- ↑↑↑↑↑↑↑↑↑↑            后台专属功能区            ↑↑↑↑↑↑↑↑↑↑ -->
+    <!-- ========================================================= -->
+
+    <!-- 同样需要引入数据和逻辑文件，让页面能正常工作 -->
+    <script src="./data/goals.js"></script>
+    <script src="./data/tucao.js"></script>
+    <script src="script.js"></script>
+
+</body>
+</html>
